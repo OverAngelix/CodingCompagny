@@ -6,13 +6,15 @@ import javafx.application.Platform;
 
 public class dayTime implements Runnable {
 	DecimalFormat format = new DecimalFormat("00");
+	private int hour;
+	private int min;
 	public void run() {
-		Platform.runLater(()->{
+		
 		while(true) {
-			for(int hour = 0;hour <24;hour++) {
-				for(int min = 0;min <60;min++) {
+			for(hour = 0;hour <24;hour++) {
+				for(min = 0;min <60;min++) {
 					
-						App.heure.setText(""+format.format(hour)+":"+format.format(min));
+					Platform.runLater(() -> App.heure.setText(""+format.format(hour)+":"+format.format(min)));
 					try {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
@@ -22,8 +24,8 @@ public class dayTime implements Runnable {
 				}
 			}
 			
+		
 		}
-		});
 	}
-
+	
 }

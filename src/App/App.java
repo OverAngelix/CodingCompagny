@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class App extends Application{
 
-	static Label heure = new Label("fdg");
+	public static Label heure = new Label("fdg");
 	public void start(Stage stage) throws Exception {
 		VBox fenetre = new VBox();
 		Thread time = new Thread(new dayTime());
@@ -20,6 +20,7 @@ public class App extends Application{
 		stage.setScene(scene);
 		stage.show();
 	}
+
 
 	public static void main(String[] args) {
 		launch(args);
