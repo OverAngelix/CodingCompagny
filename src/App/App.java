@@ -2,18 +2,20 @@ package App;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class App extends Application{
 
-
+	static Label heure = new Label("fdg");
 	public void start(Stage stage) throws Exception {
 		VBox fenetre = new VBox();
-		
-		Entreprise entreprise = new Entreprise();
-		
+		Thread time = new Thread(new dayTime());
+		time.start();
+		Entreprise entreprise = new Entreprise("CODING COMPAGNY","ROBERT");
+		fenetre.getChildren().add(heure);
 		Scene scene = new Scene(fenetre,400,400);
 		stage.setScene(scene);
 		stage.show();
