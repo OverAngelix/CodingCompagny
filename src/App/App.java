@@ -11,6 +11,9 @@ public class App extends Application{
 
 	public void start(Stage stage) throws Exception {
 		VBox fenetre = new VBox();
+		
+		Entreprise entreprise = new Entreprise();
+		
 		Scene scene = new Scene(fenetre,400,400);
 		stage.setScene(scene);
 		stage.show();
