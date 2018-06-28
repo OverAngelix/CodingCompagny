@@ -52,5 +52,8 @@ public class Entreprise {
 		this.listeMateriel = listeMateriel;
 	}
 	
+	public void addArgent(int i) {
+		argent+=i;
+	}
 	
 }
