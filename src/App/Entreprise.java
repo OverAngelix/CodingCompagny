@@ -19,4 +19,38 @@ public class Entreprise {
 		this.listeMateriel=new ArrayList<Materiel>(Arrays.asList(mOrdinateur,mSouris,mClavier));
 		this.argent = 0;
 	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getArgent() {
+		return argent;
+	}
+
+	public void setArgent(int argent) {
+		this.argent = argent;
+	}
+
+	public ArrayList<Personnage> getListePersonnel() {
+		return listePersonnel;
+	}
+
+	public void setListePersonnel(ArrayList<Personnage> listePersonnel) {
+		this.listePersonnel = listePersonnel;
+	}
+
+	public ArrayList<Materiel> getListeMateriel() {
+		return listeMateriel;
+	}
+
+	public void setListeMateriel(ArrayList<Materiel> listeMateriel) {
+		this.listeMateriel = listeMateriel;
+	}
+	
+	
 }

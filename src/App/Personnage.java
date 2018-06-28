@@ -13,7 +13,7 @@ public class Personnage {
 		this.fatigue = fatigue;
 	}
 
-	public Object getVitesse() {
+	public int getVitesse() {
 		return vitesse;
 	}
 
@@ -21,16 +21,16 @@ public class Personnage {
 		this.vitesse = vitesse;
 	}
 
-	public Object getQualite() {
-		return this.qualite;
+	public int getQualite() {
+		return qualite;
 	}
 
 	public void setQualite(int qualite) {
 		this.qualite = qualite;
 	}
 
-	public Object getFatigue() {
-		return this.fatigue;
+	public int getFatigue() {
+		return fatigue;
 	}
 
 	public void setFatigue(int fatigue) {
@@ -38,11 +38,13 @@ public class Personnage {
 	}
 
 	public String getNom() {
-		return this.nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
+	
 	
 }
