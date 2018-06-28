@@ -1,5 +1,7 @@
 package App;
 
+import javafx.application.Platform;
+
 public class Travail implements Runnable{
 	
 	int i=0;
@@ -27,6 +29,8 @@ public class Travail implements Runnable{
 			}
 		}
 		entreprise.addArgent((perso.getQualite()/100+2*(perso.getFatigue()/100))*recompense);
+		Platform.runLater(() ->App.lArgent.setText(entreprise.getArgent()+"€"));
+		
 	}
 
 }
