@@ -10,7 +10,7 @@ public class Entreprise {
 	private ArrayList<Materiel> listeMateriel;
 
 	public Entreprise(String nom, String nomPerso) {
-		Personnage persoPrincipal = new Personnage("Jean-Charles",1,1,1);
+		Personnage persoPrincipal = new Personnage(nomPerso,1,1,1);
 		Materiel mOrdinateur = new Materiel("Ordinateur");
 		Materiel mSouris = new Materiel("Souris");
 		Materiel mClavier = new Materiel("Clavier");
