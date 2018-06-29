@@ -12,6 +12,7 @@ public class dayTime implements Runnable {
 		
 		while(true) {
 			for(hour = 0;hour <24;hour++) {
+				App.entreprise.supSalaires();
 				for(min = 0;min <60;min++) {
 					
 					Platform.runLater(() -> App.heure.setText(""+format.format(hour)+":"+format.format(min)));

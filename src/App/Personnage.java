@@ -6,13 +6,25 @@ public class Personnage {
 	private int fatigue;
 	private String nom;
 	private double barTravail;
+	private boolean travaille;
+	private double salaire;
 
-	public Personnage(String nom,int vitesse, int qualite, int fatigue) {
+	public Personnage(String nom,int vitesse, int qualite, int fatigue,double salaire) {
 		this.nom = nom;
 		this.vitesse = vitesse;
 		this.qualite = qualite;
 		this.fatigue = fatigue;
 		this.barTravail = 0;
+		this.travaille = false;
+		this.salaire = salaire;
+	}
+
+	public boolean isTravaille() {
+		return travaille;
+	}
+
+	public void setTravaille(boolean travaille) {
+		this.travaille = travaille;
 	}
 
 	public double getBarTravail() {

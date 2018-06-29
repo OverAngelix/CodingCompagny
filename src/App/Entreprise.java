@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 public class Entreprise {
 	private String nom;
-	private int argent;
+	private double argent;
 	private ArrayList<Personnage> listePersonnel;
 	private ArrayList<Materiel> listeMateriel;
 
 	public Entreprise(String nom, String nomPerso) {
-		Personnage persoPrincipal = new Personnage(nomPerso,100,100,100);
+		Personnage persoPrincipal = new Personnage(nomPerso,10,10,100,0);
 		Materiel mOrdinateur = new Materiel("Ordinateur");
 		Materiel mSouris = new Materiel("Souris");
 		Materiel mClavier = new Materiel("Clavier");
@@ -20,8 +20,8 @@ public class Entreprise {
 		this.argent = 0;
 	}
 
-	public void addSalarie(String nomPerso , int qualite, int vitesse) {
-		Personnage newPerso = new Personnage(nomPerso,qualite,vitesse,100);
+	public void addSalarie(String nomPerso , int qualite, int vitesse,double salaire) {
+		Personnage newPerso = new Personnage(nomPerso,qualite,vitesse,100,salaire);
 		listePersonnel.add(newPerso);
 		
 	}
@@ -33,7 +33,7 @@ public class Entreprise {
 		this.nom = nom;
 	}
 
-	public int getArgent() {
+	public double getArgent() {
 		return argent;
 	}
 
@@ -57,8 +57,13 @@ public class Entreprise {
 		this.listeMateriel = listeMateriel;
 	}
 	
-	public void addArgent(int i) {
-		argent+=i;
+	public void addArgent(double d) {
+		argent+=d;
+	}
+
+	public void supSalaires() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
