@@ -24,7 +24,7 @@ public class App extends Application{
 	
 	
 	public Entreprise entreprise = new Entreprise("CODING COMPAGNY","Robert");
-	ListView<String> listsalarie = new ListView<String>();
+	public static ListView<String> listsalarie = new ListView<String>();
 	
 	
 	public void start(Stage stage) throws Exception {
@@ -40,6 +40,7 @@ public class App extends Application{
 		listsalarie.getSelectionModel().getSelectedItems().addListener(new descriptionEmployes());
 		
 		nomEntreprise.setText(entreprise.getNom());
+		
 		
 		bTravail.setOnMouseClicked(e ->{
 			new Thread(new Travail(entreprise,entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()),5,100)).start();

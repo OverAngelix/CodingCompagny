@@ -22,6 +22,7 @@ public class Travail implements Runnable{
 		while (i<temps) {
 			i++;
 			perso.setBarTravail(i/(double)temps);
+			Platform.runLater(() ->App.pb.setProgress(entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail()));
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
