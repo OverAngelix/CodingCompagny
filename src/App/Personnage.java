@@ -5,12 +5,22 @@ public class Personnage {
 	private int qualite;
 	private int fatigue;
 	private String nom;
+	private double barTravail;
 
 	public Personnage(String nom,int vitesse, int qualite, int fatigue) {
 		this.nom = nom;
 		this.vitesse = vitesse;
 		this.qualite = qualite;
 		this.fatigue = fatigue;
+		this.barTravail = 0;
+	}
+
+	public double getBarTravail() {
+		return barTravail;
+	}
+
+	public void setBarTravail(double barTravail) {
+		this.barTravail = barTravail;
 	}
 
 	public int getVitesse() {
