@@ -5,14 +5,12 @@ public class Personnage {
 	private int qualite;
 	private int fatigue;
 	private String nom;
-	private double barTravail;
 
 	public Personnage(String nom,int vitesse, int qualite, int fatigue) {
 		this.nom = nom;
 		this.vitesse = vitesse;
 		this.qualite = qualite;
 		this.fatigue = fatigue;
-		this.barTravail = 0;
 	}
 
 	public int getVitesse() {
@@ -45,14 +43,6 @@ public class Personnage {
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-	
-	public void setBarTravail(double d) {
-		this.barTravail=d;
-	}
-	
-	public double getBarTravail() {
-		return barTravail;
 	}
 	
 }

@@ -21,7 +21,6 @@ public class Travail implements Runnable{
 	public void run() {
 		while (i<temps) {
 			i++;
-			perso.setBarTravail(i/(double)temps);
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
