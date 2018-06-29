@@ -1,5 +1,7 @@
 package App;
 
+import javafx.application.Platform;
+
 public class Travail implements Runnable{
 	
 	int i=0;
@@ -19,6 +21,7 @@ public class Travail implements Runnable{
 	public void run() {
 		while (i<temps) {
 			i++;
+			perso.setBarTravail(i/(double)temps);
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -27,6 +30,8 @@ public class Travail implements Runnable{
 			}
 		}
 		entreprise.addArgent((perso.getQualite()/100+2*(perso.getFatigue()/100))*recompense);
+		Platform.runLater(() ->App.lArgent.setText(entreprise.getArgent()+"€"));
+		
 	}
 
 }

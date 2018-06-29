@@ -10,7 +10,7 @@ public class Entreprise {
 	private ArrayList<Materiel> listeMateriel;
 
 	public Entreprise(String nom, String nomPerso) {
-		Personnage persoPrincipal = new Personnage(nomPerso,1,1,1);
+		Personnage persoPrincipal = new Personnage(nomPerso,100,100,100);
 		Materiel mOrdinateur = new Materiel("Ordinateur");
 		Materiel mSouris = new Materiel("Souris");
 		Materiel mClavier = new Materiel("Clavier");
@@ -20,6 +20,11 @@ public class Entreprise {
 		this.argent = 0;
 	}
 
+	public void addSalarie(String nomPerso , int qualite, int vitesse) {
+		Personnage newPerso = new Personnage(nomPerso,qualite,vitesse,100);
+		listePersonnel.add(newPerso);
+		
+	}
 	public String getNom() {
 		return nom;
 	}
