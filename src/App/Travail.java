@@ -22,7 +22,10 @@ public class Travail implements Runnable{
 		while (i<temps) {
 			i++;
 			perso.setBarTravail(i/(double)temps);
+			perso.setFatigue(perso.getFatigue()-1);
+			
 			Platform.runLater(() ->App.pb.setProgress(entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail()));
+			
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -33,6 +36,7 @@ public class Travail implements Runnable{
 		entreprise.addArgent((perso.getQualite()/100+2*(perso.getFatigue()/100))*recompense);
 		Platform.runLater(() ->App.lArgent.setText(entreprise.getArgent()+"€"));
 		
+		Platform.runLater(() ->App.reloadSalarie());
 	}
 
 }

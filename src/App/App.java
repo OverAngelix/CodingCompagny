@@ -23,7 +23,7 @@ public class App extends Application{
 	public static Button bTravail = new Button("Travail !");
 	
 	
-	public Entreprise entreprise = new Entreprise("CODING COMPAGNY","Robert");
+	public static Entreprise entreprise = new Entreprise("CODING COMPAGNY","Robert");
 	public static ListView<String> listsalarie = new ListView<String>();
 	
 	
@@ -63,9 +63,7 @@ public class App extends Application{
 	
 	class descriptionEmployes implements ListChangeListener<String> {	
 		public void onChanged(javafx.collections.ListChangeListener.Change<? extends String> c) {	
-				salarie.setText(""+c.getList().toString()+"\n Qualite : "+entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getQualite()
-						+"\n Vitesse: "+entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getVitesse()
-						+"\n Fatigue : "+entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getFatigue());
+				reloadSalarie();
 				gestionPerso.getChildren().clear();
 				gestionPerso.getChildren().addAll(salarie,bTravail,pb);
 				pb.setProgress(entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail());
@@ -79,6 +77,11 @@ public class App extends Application{
 		 }
 	 }
 	 
-	 
+	 //METHODE RECHARGEANT LES STATS DU PERSONNAGE
+	 public static void reloadSalarie() {
+		 App.salarie.setText(""+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getNom()+"\n Qualite : "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getQualite()
+					+"\n Vitesse: "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getVitesse()
+					+"\n Fatigue : "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getFatigue());
+	 }
 	
 }

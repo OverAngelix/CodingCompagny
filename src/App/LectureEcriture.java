@@ -57,7 +57,7 @@ public class LectureEcriture {
 	public static void main(String[] args) {
 		new LectureEcriture().lecture("src/Texte/Employes.txt");
 		
-	//	new LectureEcriture().ecriture("src/Texte/Employes.txt");
+		//new LectureEcriture().ecriture("src/Texte/Employes.txt");
 		
 		//new LectureEcriture().lecture("src/Texte/Employes.txt");
 	}
