@@ -9,8 +9,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class App extends Application{
@@ -31,6 +31,15 @@ public class App extends Application{
 		VBox fenetre = new VBox();
 		Thread time = new Thread(new dayTime());
 		time.start();
+		
+		nomEntreprise.setTranslateY(-50);
+		//STYLE HEURE
+		heure.setTranslateX(305);
+		heure.setFont(Font.loadFont("file:src/Fonts/DS-DIGI.TTF",36));
+		final String cssDefault = "-fx-border-color: black;\n"
+                + "-fx-border-insets: 5;\n"
+                + "-fx-border-width: 3;\n";
+		heure.setStyle(cssDefault);
 		
 		//LISTES DES EMPLOYES
 		entreprise.addSalarie("Florent" ,50, 70, 0);
