@@ -38,7 +38,7 @@ public class App extends Application{
 		//STYLE HEURE
 		heure.setTranslateX(280);
 		heure.setTranslateY(-5);
-		heure.setTextFill(Color.WHITE);
+		heure.setTextFill(Color.BLACK);
 		heure.setFont(Font.loadFont("file:src/Fonts/DS-DIGI.TTF",36));
 		heure.setId("Heure");
 		
@@ -60,7 +60,12 @@ public class App extends Application{
 			else {System.out.println("Attendez que "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getNom()+" termine son travail en cours.");}
 		});
 		
-		
+		bLicencie.setOnMouseClicked(e->{			
+			entreprise.getListePersonnel().remove(listsalarie.getSelectionModel().getSelectedIndex());	
+				loadSalaries();
+
+
+		});
 		
 		HBox persos = new HBox(listsalarie,gestionPerso);
 		fenetre.getChildren().addAll(heure,nomEntreprise,lArgent,persos);
@@ -82,13 +87,16 @@ public class App extends Application{
 				reloadSalarie();
 				gestionPerso.getChildren().clear();
 				gestionPerso.getChildren().addAll(salarie,bTravail,pb,bLicencie);
-				pb.setProgress(entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail());
+			pb.setProgress(entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail());
 		}
 		
 	}
 	
 	 public void loadSalaries() {
+
+			listsalarie.getItems().clear();
 		 for(int i = 0 ; i <entreprise.getListePersonnel().size(); i++) {
+			 
 			 listsalarie.getItems().add(entreprise.getListePersonnel().get(i).getNom());
 		 }
 	 }
