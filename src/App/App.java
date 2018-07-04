@@ -10,6 +10,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -21,6 +22,7 @@ public class App extends Application{
 	public static VBox gestionPerso = new VBox();
 	public static ProgressBar pb = new ProgressBar();
 	public static Button bTravail = new Button("Travail !");
+	public static Button bLicencie = new Button("VIRER !");
 	
 	
 	public static Entreprise entreprise = new Entreprise("CODING COMPAGNY","Robert");
@@ -32,14 +34,14 @@ public class App extends Application{
 		Thread time = new Thread(new dayTime());
 		time.start();
 		
-		nomEntreprise.setTranslateY(-50);
+		nomEntreprise.setTranslateY(0);
 		//STYLE HEURE
-		heure.setTranslateX(305);
+		heure.setTranslateX(280);
+		heure.setTranslateY(-5);
+		heure.setTextFill(Color.WHITE);
 		heure.setFont(Font.loadFont("file:src/Fonts/DS-DIGI.TTF",36));
-		final String cssDefault = "-fx-border-color: black;\n"
-                + "-fx-border-insets: 5;\n"
-                + "-fx-border-width: 3;\n";
-		heure.setStyle(cssDefault);
+		heure.setId("Heure");
+		
 		
 		//LISTES DES EMPLOYES
 		entreprise.addSalarie("Florent" ,50, 70, 0);
@@ -62,7 +64,9 @@ public class App extends Application{
 		
 		HBox persos = new HBox(listsalarie,gestionPerso);
 		fenetre.getChildren().addAll(heure,nomEntreprise,lArgent,persos);
+		
 		Scene scene = new Scene(fenetre,400,400);
+		scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -77,7 +81,7 @@ public class App extends Application{
 		public void onChanged(javafx.collections.ListChangeListener.Change<? extends String> c) {	
 				reloadSalarie();
 				gestionPerso.getChildren().clear();
-				gestionPerso.getChildren().addAll(salarie,bTravail,pb);
+				gestionPerso.getChildren().addAll(salarie,bTravail,pb,bLicencie);
 				pb.setProgress(entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail());
 		}
 		
