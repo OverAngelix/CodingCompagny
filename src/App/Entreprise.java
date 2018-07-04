@@ -62,8 +62,10 @@ public class Entreprise {
 	}
 
 	public void supSalaires() {
-		// TODO Auto-generated method stub
-		
+		ArrayList<Personnage> personnel = this.getListePersonnel();
+		for(int i=0;i<personnel.size();i++) {
+			this.addArgent(-personnel.get(i).getSalaire());
+		}
 	}
 	
 }

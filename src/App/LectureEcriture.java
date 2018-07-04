@@ -1,11 +1,13 @@
 package App;
 
 import java.io.*;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 public class LectureEcriture {
-	public void lecture(String textFile) {
+	public ArrayList<String> lecture(String textFile) {
+		ArrayList<String> listeEmployes = new ArrayList<>(); 
 		String t = textFile;
 		try
 		{
@@ -17,7 +19,7 @@ public class LectureEcriture {
 				String line = br.readLine();
 	 
 				while (line != null){
-					System.out.println (line);
+					listeEmployes.add(line);
 					line = br.readLine();
 				}
 	 
@@ -31,6 +33,7 @@ public class LectureEcriture {
 		catch (FileNotFoundException exception){
 			System.out.println ("Le fichier n'a pas été trouvé");
 		}
+	return listeEmployes;
 	}
 	
 	public void ecriture(String textFile) {
@@ -54,12 +57,12 @@ public class LectureEcriture {
 	}
 	
 	
-	public static void main(String[] args) {
-		new LectureEcriture().lecture("src/Texte/Employes.txt");
+	/*public static void main(String[] args) {
+		//System.out.println(new LectureEcriture().lecture("src/Texte/Employes.txt"));
 		
 		//new LectureEcriture().ecriture("src/Texte/Employes.txt");
 		
 		//new LectureEcriture().lecture("src/Texte/Employes.txt");
-	}
+	}*/
 	
 }

@@ -23,6 +23,14 @@ public class Personnage {
 		return travaille;
 	}
 
+	public double getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(double salaire) {
+		this.salaire = salaire;
+	}
+
 	public void setTravaille(boolean travaille) {
 		this.travaille = travaille;
 	}
