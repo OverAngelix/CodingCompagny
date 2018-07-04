@@ -44,8 +44,8 @@ public class App extends Application{
 		
 		
 		//LISTES DES EMPLOYES
-		entreprise.addSalarie("Florent" ,50, 70, 0);
-		entreprise.addSalarie("Steven" ,60, 60, 0);
+		entreprise.addSalarie("Florent" ,50, 70, 1000);
+		entreprise.addSalarie("Steven" ,60, 60, 1);
 		loadSalaries();
 		listsalarie.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		listsalarie.getSelectionModel().getSelectedItems().addListener(new descriptionEmployes());
