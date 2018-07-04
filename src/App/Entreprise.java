@@ -25,6 +25,11 @@ public class Entreprise {
 		listePersonnel.add(newPerso);
 		
 	}
+	
+	public void removeSalarie(int classement) {
+	
+		listePersonnel.remove(classement);
+	}
 	public String getNom() {
 		return nom;
 	}

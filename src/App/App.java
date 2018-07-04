@@ -60,9 +60,11 @@ public class App extends Application{
 			else {System.out.println("Attendez que "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getNom()+" termine son travail en cours.");}
 		});
 		
-		bLicencie.setOnMouseClicked(e->{			
-			entreprise.getListePersonnel().remove(listsalarie.getSelectionModel().getSelectedIndex());	
-				loadSalaries();
+		bLicencie.setOnMouseClicked(e->{
+			entreprise.removeSalarie(listsalarie.getSelectionModel().getSelectedIndex());	
+			listsalarie.getSelectionModel().clearSelection();
+			gestionPerso.getChildren().clear();
+			loadSalaries();
 
 
 		});
@@ -84,11 +86,13 @@ public class App extends Application{
 	
 	class descriptionEmployes implements ListChangeListener<String> {	
 		public void onChanged(javafx.collections.ListChangeListener.Change<? extends String> c) {	
-				reloadSalarie();
+			 if(listsalarie.getSelectionModel().getSelectedIndex()!=-1) {
+			reloadSalarie();
 				gestionPerso.getChildren().clear();
 				gestionPerso.getChildren().addAll(salarie,bTravail,pb,bLicencie);
+				
 			pb.setProgress(entreprise.getListePersonnel().get(listsalarie.getSelectionModel().getSelectedIndex()).getBarTravail());
-		}
+		}}
 		
 	}
 	
@@ -103,6 +107,7 @@ public class App extends Application{
 	 
 	 //METHODE RECHARGEANT LES STATS DU PERSONNAGE
 	 public static void reloadSalarie() {
+		
 		 App.salarie.setText(""+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getNom()+"\n Qualite : "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getQualite()
 					+"\n Vitesse: "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getVitesse()
 					+"\n Fatigue : "+entreprise.getListePersonnel().get(App.listsalarie.getSelectionModel().getSelectedIndex()).getFatigue());
