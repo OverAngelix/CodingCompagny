@@ -1,7 +1,9 @@
 package App;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +15,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class App extends Application{
 	public static Label salarie = new Label();
@@ -23,7 +26,7 @@ public class App extends Application{
 	public static ProgressBar pb = new ProgressBar();
 	public static Button bTravail = new Button("Travail !");
 	public static Button bLicencie = new Button("VIRER !");
-	
+	public static Button bEmbaucher = new Button("Embaucher");
 	
 	public static Entreprise entreprise = new Entreprise("CODING COMPAGNY","Robert");
 	public static ListView<String> listsalarie = new ListView<String>();
@@ -44,8 +47,6 @@ public class App extends Application{
 		
 		
 		//LISTES DES EMPLOYES
-		entreprise.addSalarie("Florent" ,50, 70, 1000);
-		entreprise.addSalarie("Steven" ,60, 60, 1);
 		loadSalaries();
 		listsalarie.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 		listsalarie.getSelectionModel().getSelectedItems().addListener(new descriptionEmployes());
@@ -65,18 +66,39 @@ public class App extends Application{
 			listsalarie.getSelectionModel().clearSelection();
 			gestionPerso.getChildren().clear();
 			loadSalaries();
-
-
+		});
+		bEmbaucher.setOnMouseClicked(e->{
+			FenEmbauche fenEmbauche = new FenEmbauche();
+			Stage s = new Stage();
+			try {
+				fenEmbauche.start(s);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		});
 		
 		HBox persos = new HBox(listsalarie,gestionPerso);
-		fenetre.getChildren().addAll(heure,nomEntreprise,lArgent,persos);
+		fenetre.getChildren().addAll(heure,nomEntreprise,lArgent,persos,bEmbaucher);
+		
+		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+		    public void handle(WindowEvent t) {
+		        Platform.exit();
+		        System.exit(0);
+		    }
+		});
 		
 		Scene scene = new Scene(fenetre,400,400);
 		scene.getStylesheets().add(getClass().getResource("/css/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
+		
+		
+		
 	}
+	
+	
 
 
 	public static void main(String[] args) {
@@ -96,7 +118,7 @@ public class App extends Application{
 		
 	}
 	
-	 public void loadSalaries() {
+	 public static void loadSalaries() {
 
 			listsalarie.getItems().clear();
 		 for(int i = 0 ; i <entreprise.getListePersonnel().size(); i++) {

@@ -11,11 +11,12 @@ public class Travail implements Runnable{
 	private int recompense;
 	
 	
-	public Travail(Entreprise entreprise, Personnage perso, int temps, int recompense) {
+	public Travail(Entreprise entreprise, Personnage perso, int tempsDeBase, int recompenseDeBase) {
 		this.entreprise = entreprise;
 		this.perso = perso;
-		this.temps = temps;
-		this.recompense = recompense;
+		this.temps = (int)(tempsDeBase*(1-perso.getVitesse()/100.0));
+		//System.out.println(tempsDeBase*(1-perso.getVitesse()/100.0));
+		this.recompense = recompenseDeBase;
 	}
 	
 	public void run() {

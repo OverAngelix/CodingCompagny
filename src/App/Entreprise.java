@@ -20,9 +20,8 @@ public class Entreprise {
 		this.argent = 0;
 	}
 
-	public void addSalarie(String nomPerso , int qualite, int vitesse,double salaire) {
-		Personnage newPerso = new Personnage(nomPerso,qualite,vitesse,100,salaire);
-		listePersonnel.add(newPerso);
+	public void addSalarie(Personnage perso) {
+		listePersonnel.add(perso);
 		
 	}
 	
